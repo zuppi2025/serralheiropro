@@ -8,6 +8,7 @@ import { ProfitSimulator } from "@/components/sections/profit-simulator";
 import { Pricing } from "@/components/sections/pricing";
 import { FAQ } from "@/components/sections/faq";
 import { FooterCTA } from "@/components/sections/footer-cta";
+import { Authority } from "@/components/sections/authority";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <Testimonials />
       <ProfitSimulator />
       <Pricing />
+      <Authority />
       <FAQ />
       <FooterCTA />
     </main>

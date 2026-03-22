@@ -31,13 +31,14 @@ export function Hero() {
         </h1>
         
         {heroMain && (
-          <div className="relative w-full max-w-3xl mx-auto aspect-video mb-10 rounded-sm overflow-hidden border-4 border-primary shadow-2xl">
+          <div className="relative w-full max-w-4xl mx-auto aspect-video mb-10 rounded-sm overflow-hidden bg-zinc-900 border-4 border-primary shadow-2xl">
             <Image
               src={heroMain.imageUrl}
               alt={heroMain.description}
               fill
-              className="object-cover"
+              className="object-contain"
               data-ai-hint={heroMain.imageHint}
+              priority
             />
           </div>
         )}

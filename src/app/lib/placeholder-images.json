@@ -8,6 +8,12 @@
       "imageHint": "metal workshop"
     },
     {
+      "id": "hero-main",
+      "description": "Featured metal projects",
+      "imageUrl": "https://i.imgur.com/pTNDBtW.jpeg",
+      "imageHint": "welding projects"
+    },
+    {
       "id": "gate-1",
       "description": "Modern metal gate",
       "imageUrl": "https://images.unsplash.com/photo-1590059393392-502a1168170c?q=80&w=800&h=600&auto=format&fit=crop",

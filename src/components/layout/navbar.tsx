@@ -10,11 +10,11 @@ export function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-900">
-      <div className="container mx-auto px-4 h-16 md:h-20 flex items-center justify-between">
+    <header className="fixed top-0 left-0 w-full z-50 bg-zinc-950/95 backdrop-blur-md border-b border-zinc-900">
+      <div className="container mx-auto px-4 h-24 md:h-28 flex items-center justify-between">
         {/* Lado Esquerdo: Identidade */}
-        <div className="flex items-center gap-2 md:gap-3">
-          <div className="relative w-6 h-6 md:w-8 md:h-8">
+        <div className="flex items-center gap-3 md:gap-4">
+          <div className="relative w-10 h-10 md:w-12 md:h-12">
             <Image 
               src="https://i.imgur.com/pR3yPWN.png" 
               alt="Logo Serralheiro Pro" 
@@ -22,21 +22,20 @@ export function Navbar() {
               className="object-contain"
             />
           </div>
-          <span className="text-xs md:text-xl font-black uppercase tracking-tighter text-white leading-none">
+          <span className="text-base md:text-2xl font-black uppercase tracking-tighter text-white leading-none">
             PACK <span className="text-primary">SERRALHEIRO PRO</span>
           </span>
         </div>
         
         {/* Lado Direito: CTA */}
-        <div className="flex flex-col items-end gap-0.5">
+        <div className="flex flex-col items-end gap-1">
           <Button 
-            size="sm"
-            className="bg-primary hover:bg-orange-600 text-primary-foreground font-black uppercase text-[10px] md:text-xs tracking-widest rounded-none border-b-2 border-orange-800 active:border-b-0 h-8 md:h-10 px-4 md:px-8 transition-all"
+            className="bg-primary hover:bg-orange-600 text-primary-foreground font-black uppercase text-sm md:text-base tracking-widest rounded-none border-b-4 border-orange-800 active:border-b-0 h-14 md:h-16 px-6 md:px-10 transition-all shadow-lg"
             onClick={scrollToPricing}
           >
             ACESSAR AGORA
           </Button>
-          <span className="text-[8px] md:text-[9px] font-black uppercase text-zinc-500 tracking-[0.2em] leading-none mr-1 italic">
+          <span className="text-[10px] md:text-[11px] font-black uppercase text-zinc-500 tracking-[0.2em] leading-none mr-2 italic">
             válido hoje
           </span>
         </div>

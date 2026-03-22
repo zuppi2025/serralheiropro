@@ -1,3 +1,24 @@
+
+import { Hero } from "@/components/sections/hero";
+import { Gallery } from "@/components/sections/gallery";
+import { Benefits } from "@/components/sections/benefits";
+import { ExtraValue } from "@/components/sections/extra-value";
+import { Testimonials } from "@/components/sections/testimonials";
+import { Pricing } from "@/components/sections/pricing";
+import { FAQ } from "@/components/sections/faq";
+import { FooterCTA } from "@/components/sections/footer-cta";
+
 export default function Home() {
-  return <></>;
+  return (
+    <main className="min-h-screen bg-background font-body">
+      <Hero />
+      <Gallery />
+      <Benefits />
+      <ExtraValue />
+      <Testimonials />
+      <Pricing />
+      <FAQ />
+      <FooterCTA />
+    </main>
+  );
 }

@@ -36,6 +36,11 @@ export function Testimonials() {
         <div className="grid md:grid-cols-3 gap-8">
           {reviews.map((review, i) => (
             <div key={i} className="relative p-8 bg-zinc-900/60 border border-zinc-800 rounded-3xl shadow-2xl flex flex-col items-start transition-all hover:border-primary/40 hover:bg-zinc-900/80 group">
+              {/* WhatsApp Icon Indicator */}
+              <div className="absolute top-8 right-8 opacity-70 group-hover:opacity-100 transition-opacity">
+                <MessageCircle className="h-6 w-6 text-[#25D366] fill-[#25D366]/10" />
+              </div>
+
               {/* Stars */}
               <div className="flex gap-1 mb-6">
                 {[...Array(5)].map((_, starIndex) => (
@@ -70,11 +75,6 @@ export function Testimonials() {
                     Cliente Verificado
                   </div>
                 </div>
-              </div>
-              
-              {/* Subtle Icon Decoration */}
-              <div className="absolute top-8 right-8 opacity-10 group-hover:opacity-20 transition-opacity">
-                <MessageCircle className="h-10 w-10 text-primary" />
               </div>
             </div>
           ))}

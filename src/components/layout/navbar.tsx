@@ -13,7 +13,7 @@ export function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-zinc-950/95 backdrop-blur-md border-b border-zinc-900">
+    <header className="absolute top-0 left-0 w-full z-50 bg-zinc-950/95 backdrop-blur-md border-b border-zinc-900">
       <div className="container mx-auto px-4 h-24 md:h-28 flex items-center justify-between">
         {/* Lado Esquerdo: Identidade */}
         <div className="flex items-center gap-3 md:gap-4">

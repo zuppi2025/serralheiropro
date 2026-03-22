@@ -6,7 +6,10 @@ import Image from "next/image";
 
 export function Navbar() {
   const scrollToPricing = () => {
-    document.getElementById('planos')?.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById('planos');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -28,16 +31,13 @@ export function Navbar() {
         </div>
         
         {/* Lado Direito: CTA */}
-        <div className="flex flex-col items-end gap-1">
+        <div className="flex flex-col items-end">
           <Button 
-            className="bg-primary hover:bg-orange-600 text-primary-foreground font-black uppercase text-sm md:text-base tracking-widest rounded-none border-b-4 border-orange-800 active:border-b-0 h-14 md:h-16 px-6 md:px-10 transition-all shadow-lg"
+            className="bg-primary hover:bg-orange-600 text-primary-foreground font-black uppercase text-xs md:text-sm tracking-widest rounded-none border-b-4 border-orange-800 active:border-b-0 h-12 md:h-14 px-5 md:px-8 transition-all shadow-lg"
             onClick={scrollToPricing}
           >
-            ACESSAR AGORA
+            VÁLIDO HOJE
           </Button>
-          <span className="text-[10px] md:text-[11px] font-black uppercase text-zinc-500 tracking-[0.2em] leading-none mr-2 italic">
-            válido hoje
-          </span>
         </div>
       </div>
     </header>

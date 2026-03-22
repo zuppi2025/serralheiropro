@@ -3,7 +3,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Wrench, Home, Truck, Layout, TrendingUp, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -21,33 +20,33 @@ const services: ServiceData[] = [
     id: "portao",
     name: "Portão simples",
     icon: <Wrench className="h-8 w-8" />,
-    profit: 400,
-    weekly: 800,
-    monthly: 3200,
+    profit: 550,
+    weekly: 1100,
+    monthly: 4400,
   },
   {
     id: "grade",
     name: "Grade residencial",
     icon: <Home className="h-8 w-8" />,
-    profit: 250,
-    weekly: 500,
-    monthly: 2000,
+    profit: 350,
+    weekly: 700,
+    monthly: 2800,
   },
   {
     id: "carretinha",
     name: "Carretinha",
     icon: <Truck className="h-8 w-8" />,
-    profit: 800,
-    weekly: 1600,
-    monthly: 6400,
+    profit: 1200,
+    weekly: 2400,
+    monthly: 9600,
   },
   {
     id: "mesa",
     name: "Mesa industrial",
     icon: <Layout className="h-8 w-8" />,
-    profit: 300,
-    weekly: 600,
-    monthly: 2400,
+    profit: 600,
+    weekly: 1200,
+    monthly: 4800,
   },
 ];
 
@@ -59,7 +58,6 @@ export function ProfitSimulator() {
   const selectedService = services.find(s => s.id === selectedId) || services[0];
 
   useEffect(() => {
-    // Efeito de contador
     let start = 0;
     const end = selectedService.profit;
     const duration = 500;
@@ -80,21 +78,19 @@ export function ProfitSimulator() {
 
   return (
     <section className="py-24 bg-zinc-950 text-white overflow-hidden relative border-y border-zinc-900">
-      {/* Background decoration */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(249,115,22,0.08)_0,transparent_70%)] pointer-events-none" />
       
       <div className="container px-4 mx-auto max-w-6xl relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-black font-headline uppercase mb-4 leading-tight tracking-tighter italic">
-            💰 VEJA QUANTO UM SERVIÇO PODE TE DAR
+            💰 VEJA QUANTO UM PROJETO PODE TE DAR
           </h2>
           <p className="text-zinc-400 text-xl md:text-2xl font-medium">
-            Escolha um tipo de serviço e veja o lucro médio na prática 👇
+            Escolha um tipo de projeto e veja o lucro comum na prática 👇
           </p>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-8 items-start">
-          {/* Selection Side */}
           <div className="lg:col-span-7 grid grid-cols-2 gap-4">
             {services.map((service) => (
               <button
@@ -120,7 +116,6 @@ export function ProfitSimulator() {
             ))}
           </div>
 
-          {/* Result Side */}
           <div className="lg:col-span-5" ref={resultRef}>
             <div className="bg-gradient-to-b from-zinc-900 to-black p-8 md:p-10 border-2 border-primary rounded-2xl text-center shadow-[0_20px_60px_rgba(249,115,22,0.2)] relative">
               <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-8 py-2 rounded-full font-black uppercase text-lg shadow-lg animate-bounce whitespace-nowrap">
@@ -128,8 +123,10 @@ export function ProfitSimulator() {
               </div>
 
               <div className="mb-8 mt-4">
-                <span className="text-lg font-black uppercase tracking-[0.2em] text-zinc-500 leading-none">Lucro médio:</span>
-                <div className="flex items-center justify-center gap-2 mt-4">
+                <span className="text-xs font-black uppercase tracking-[0.1em] text-zinc-500 leading-none block mb-2">
+                  💰 Média que muitos serralheiros fazem:
+                </span>
+                <div className="flex items-center justify-center gap-2">
                   <span className="text-3xl font-black text-primary italic">R$</span>
                   <span className="text-7xl md:text-8xl font-black text-white tabular-nums tracking-tighter">
                     {animatedProfit.toLocaleString('pt-BR')}
@@ -157,7 +154,6 @@ export function ProfitSimulator() {
           </div>
         </div>
 
-        {/* Conversion Block */}
         <div className="mt-20 text-center animate-in fade-in slide-in-from-bottom-8 duration-1000">
           <h3 className="text-2xl md:text-4xl font-black uppercase mb-4 leading-tight max-w-3xl mx-auto">
             Agora imagina ter vários projetos como esse prontos pra usar no seu dia a dia…

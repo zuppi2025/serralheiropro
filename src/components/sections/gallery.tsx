@@ -31,16 +31,16 @@ export function Gallery() {
         <CarouselContent className="-ml-2 md:-ml-4">
           {images.map((img) => (
             <CarouselItem key={img.id} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
-              <div className="group relative aspect-[4/3] overflow-hidden rounded-sm border-2 border-zinc-200 dark:border-zinc-800 shadow-md bg-zinc-100 dark:bg-zinc-900">
+              <div className="group relative aspect-[4/3] overflow-hidden rounded-sm border-2 border-zinc-200 dark:border-zinc-800 shadow-md bg-white">
                 <Image
                   src={img.imageUrl}
                   alt={img.description}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-contain p-2"
                   data-ai-hint={img.imageHint}
                 />
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                  <span className="text-white text-xs font-bold uppercase bg-primary px-2 py-1">Modelo Real</span>
+                <div className="absolute top-2 right-2">
+                  <span className="text-white text-[10px] font-black uppercase bg-primary px-2 py-1 shadow-sm">Projeto Real</span>
                 </div>
               </div>
             </CarouselItem>

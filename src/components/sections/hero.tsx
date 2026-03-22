@@ -26,29 +26,25 @@ export function Hero() {
       )}
       
       <div className="container relative z-10 px-4 py-20 text-center max-w-5xl">
-        <h1 className="text-4xl md:text-7xl font-black tracking-tight mb-8 font-headline uppercase leading-none">
+        <h1 className="text-4xl md:text-7xl font-black tracking-tight mb-12 font-headline uppercase leading-none">
           Projetos prontos de serralheria para você usar no dia a dia
         </h1>
         
         {heroMain && (
-          <div className="relative w-full max-w-2xl mx-auto mb-10">
+          <div className="relative w-full max-w-4xl mx-auto mb-12">
             <Image
               src={heroMain.imageUrl}
               alt={heroMain.description}
-              width={800}
-              height={1000}
-              className="w-full h-auto rounded-sm shadow-2xl"
+              width={1200}
+              height={800}
+              className="w-full h-auto rounded-sm shadow-2xl block mx-auto"
               data-ai-hint={heroMain.imageHint}
               priority
             />
           </div>
         )}
 
-        <p className="text-lg md:text-2xl text-zinc-300 mb-10 max-w-2xl mx-auto font-medium">
-          Tenha acesso a vários modelos de portões, grades e estruturas para facilitar seu trabalho e ganhar mais dinheiro.
-        </p>
-        
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-6">
           <Button 
             size="lg" 
             className="h-16 px-12 text-xl font-black uppercase tracking-widest bg-primary hover:bg-primary/90 text-primary-foreground border-b-4 border-orange-700 rounded-none"
@@ -56,8 +52,8 @@ export function Hero() {
           >
             QUERO ACESSAR OS PROJETOS
           </Button>
-          <div className="flex items-center gap-2 text-sm text-zinc-400 font-bold uppercase tracking-tighter">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+          <div className="flex items-center gap-3 text-sm md:text-base text-zinc-400 font-bold uppercase tracking-tighter">
+            <span className="w-4 h-4 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]" />
             Acesso imediato após o pagamento
           </div>
         </div>

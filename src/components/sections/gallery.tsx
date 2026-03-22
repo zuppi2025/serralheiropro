@@ -17,59 +17,68 @@ export function Gallery() {
   const group3 = PlaceHolderImages.filter((img) => img.id.startsWith("gallery-3-"));
 
   const renderCarousel = (images: typeof group1, title: string) => (
-    <div className="mb-16 last:mb-0">
-      <h3 className="text-xl font-black uppercase tracking-tight mb-6 text-zinc-800 dark:text-zinc-200 border-l-4 border-primary pl-4">
-        {title}
-      </h3>
+    <div className="mb-20 last:mb-0">
+      <div className="flex items-center gap-4 mb-8">
+        <div className="h-8 w-1.5 bg-primary rounded-full" />
+        <h3 className="text-2xl font-black uppercase tracking-tight text-zinc-800 dark:text-zinc-100">
+          {title}
+        </h3>
+      </div>
+      
       <Carousel
         opts={{
           align: "start",
           loop: true,
         }}
-        className="w-full relative"
+        className="w-full max-w-4xl mx-auto relative group"
       >
-        <CarouselContent className="-ml-2 md:-ml-4">
+        <CarouselContent className="-ml-4">
           {images.map((img) => (
-            <CarouselItem key={img.id} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
-              <div className="group relative aspect-[4/3] overflow-hidden rounded-sm border-2 border-zinc-200 dark:border-zinc-800 shadow-md bg-white">
+            <CarouselItem key={img.id} className="pl-4 basis-full md:basis-1/2">
+              <div className="relative aspect-[1/1.4] bg-white rounded-xl shadow-xl overflow-hidden border border-zinc-200">
                 <Image
                   src={img.imageUrl}
                   alt={img.description}
                   fill
-                  className="object-contain p-2"
+                  className="object-contain p-4"
                   data-ai-hint={img.imageHint}
                 />
-                <div className="absolute top-2 right-2">
-                  <span className="text-white text-[10px] font-black uppercase bg-primary px-2 py-1 shadow-sm">Projeto Real</span>
-                </div>
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div className="flex justify-end gap-2 mt-4 md:absolute md:top-1/2 md:-translate-y-1/2 md:w-full md:justify-between md:px-2 md:pointer-events-none md:mt-0">
-          <CarouselPrevious className="static md:pointer-events-auto bg-white/90 dark:bg-zinc-900/90 border-2 border-primary hover:bg-primary hover:text-white transition-colors h-10 w-10 md:-left-12" />
-          <CarouselNext className="static md:pointer-events-auto bg-white/90 dark:bg-zinc-900/90 border-2 border-primary hover:bg-primary hover:text-white transition-colors h-10 w-10 md:-right-12" />
+        
+        {/* Navegação Estilo Visualizador */}
+        <div className="hidden md:block">
+          <CarouselPrevious className="absolute -left-16 top-1/2 -translate-y-1/2 h-12 w-12 border-none bg-zinc-900/10 hover:bg-primary hover:text-white transition-all" />
+          <CarouselNext className="absolute -right-16 top-1/2 -translate-y-1/2 h-12 w-12 border-none bg-zinc-900/10 hover:bg-primary hover:text-white transition-all" />
+        </div>
+        
+        {/* Indicadores Mobile */}
+        <div className="flex justify-center gap-2 mt-6 md:hidden">
+          <CarouselPrevious className="static h-10 w-10 border-2 border-primary" />
+          <CarouselNext className="static h-10 w-10 border-2 border-primary" />
         </div>
       </Carousel>
     </div>
   );
 
   return (
-    <section className="py-24 bg-white dark:bg-zinc-950">
-      <div className="container px-4 mx-auto max-w-6xl">
+    <section className="py-24 bg-zinc-50 dark:bg-zinc-950">
+      <div className="container px-4 mx-auto max-w-5xl">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-black font-headline uppercase mb-4 tracking-tighter italic">
+          <h2 className="text-3xl md:text-5xl font-black uppercase mb-4 tracking-tighter italic">
             Veja os projetos por dentro
           </h2>
-          <p className="text-zinc-600 dark:text-zinc-400 font-medium text-lg">
-            Navegue pelos modelos reais que você terá acesso imediato
+          <p className="text-zinc-600 dark:text-zinc-400 font-medium text-lg max-w-2xl mx-auto">
+            Folhas de projeto detalhadas, prontas para imprimir ou visualizar no celular na hora da fabricação.
           </p>
         </div>
         
-        <div className="space-y-12">
-          {renderCarousel(group1, "Conjunto de Projetos 01")}
-          {renderCarousel(group2, "Conjunto de Projetos 02")}
-          {renderCarousel(group3, "Conjunto de Projetos 03")}
+        <div className="space-y-20">
+          {renderCarousel(group1, "Projetos de Carretinhas e Reboques")}
+          {renderCarousel(group2, "Estruturas e Portões Profissionais")}
+          {renderCarousel(group3, "Móveis Industriais e Utilidades")}
         </div>
       </div>
     </section>

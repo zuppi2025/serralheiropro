@@ -2,7 +2,6 @@
 "use client";
 
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
@@ -28,7 +27,7 @@ export function Authority() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
             <h3 className="text-2xl font-black uppercase mb-6 text-primary">
               Marcelo Rodrigues
@@ -59,25 +58,12 @@ export function Authority() {
                   src={specialistImg.imageUrl}
                   alt="Especialista em Serralheria"
                   fill
-                  className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                  className="object-cover"
                   data-ai-hint={specialistImg.imageHint}
                 />
               )}
             </div>
           </div>
-        </div>
-
-        <div className="text-center pt-12 border-t border-zinc-900">
-          <p className="text-xl font-bold uppercase mb-8 max-w-2xl mx-auto leading-tight">
-            Se você quer facilitar seu trabalho e ter mais opções de serviço, pode acessar agora
-          </p>
-          <Button 
-            size="lg"
-            className="h-16 px-12 text-xl font-black uppercase bg-primary hover:bg-orange-600 text-primary-foreground rounded-none border-b-4 border-orange-800"
-            onClick={() => document.getElementById('planos')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            QUERO ACESSAR
-          </Button>
         </div>
       </div>
     </section>

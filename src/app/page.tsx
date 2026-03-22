@@ -9,6 +9,7 @@ import { Pricing } from "@/components/sections/pricing";
 import { FAQ } from "@/components/sections/faq";
 import { FooterCTA } from "@/components/sections/footer-cta";
 import { Authority } from "@/components/sections/authority";
+import { Footer } from "@/components/sections/footer";
 
 export default function Home() {
   return (
@@ -21,8 +22,9 @@ export default function Home() {
       <ProfitSimulator />
       <Pricing />
       <Authority />
-      <FAQ />
       <FooterCTA />
+      <FAQ />
+      <Footer />
     </main>
   );
 }

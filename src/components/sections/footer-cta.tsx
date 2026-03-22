@@ -1,15 +1,9 @@
+
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
 
 export function FooterCTA() {
-  const [year, setYear] = useState<number>(new Date().getFullYear());
-
-  useEffect(() => {
-    setYear(new Date().getFullYear());
-  }, []);
-
   return (
     <section className="py-24 bg-primary text-primary-foreground border-t-8 border-orange-700">
       <div className="container px-4 mx-auto text-center max-w-4xl">
@@ -23,9 +17,6 @@ export function FooterCTA() {
         >
           QUERO ACESSAR
         </Button>
-        <footer className="mt-20 pt-10 border-t border-orange-400/30 text-sm opacity-80 uppercase tracking-widest font-bold">
-          © {year} Serralheiro Pro - Todos os direitos reservados
-        </footer>
       </div>
     </section>
   );

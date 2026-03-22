@@ -4,6 +4,7 @@ import { Gallery } from "@/components/sections/gallery";
 import { Benefits } from "@/components/sections/benefits";
 import { ExtraValue } from "@/components/sections/extra-value";
 import { Testimonials } from "@/components/sections/testimonials";
+import { ProfitSimulator } from "@/components/sections/profit-simulator";
 import { Pricing } from "@/components/sections/pricing";
 import { FAQ } from "@/components/sections/faq";
 import { FooterCTA } from "@/components/sections/footer-cta";
@@ -16,6 +17,7 @@ export default function Home() {
       <Benefits />
       <ExtraValue />
       <Testimonials />
+      <ProfitSimulator />
       <Pricing />
       <FAQ />
       <FooterCTA />

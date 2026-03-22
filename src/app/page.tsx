@@ -1,4 +1,5 @@
 
+import { Navbar } from "@/components/layout/navbar";
 import { Hero } from "@/components/sections/hero";
 import { Gallery } from "@/components/sections/gallery";
 import { Benefits } from "@/components/sections/benefits";
@@ -13,7 +14,8 @@ import { FooterCTA } from "@/components/sections/footer-cta";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background font-body">
+    <main className="min-h-screen bg-background font-body pt-16 md:pt-20">
+      <Navbar />
       <Hero />
       <Gallery />
       <Benefits />

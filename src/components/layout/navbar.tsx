@@ -2,6 +2,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export function Navbar() {
   const scrollToPricing = () => {
@@ -12,9 +13,17 @@ export function Navbar() {
     <header className="fixed top-0 left-0 w-full z-50 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-900">
       <div className="container mx-auto px-4 h-16 md:h-20 flex items-center justify-between">
         {/* Lado Esquerdo: Identidade */}
-        <div className="flex items-center gap-2">
-          <span className="text-sm md:text-xl font-black uppercase tracking-tighter text-white">
-            🔧 PACK <span className="text-primary">SERRALHEIRO PRO</span>
+        <div className="flex items-center gap-2 md:gap-3">
+          <div className="relative w-6 h-6 md:w-8 md:h-8">
+            <Image 
+              src="https://i.imgur.com/pR3yPWN.png" 
+              alt="Logo Serralheiro Pro" 
+              fill
+              className="object-contain"
+            />
+          </div>
+          <span className="text-xs md:text-xl font-black uppercase tracking-tighter text-white leading-none">
+            PACK <span className="text-primary">SERRALHEIRO PRO</span>
           </span>
         </div>
         

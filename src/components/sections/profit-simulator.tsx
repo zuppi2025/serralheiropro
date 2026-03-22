@@ -2,8 +2,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Wrench, Home, Truck, Layout, TrendingUp, Zap } from "lucide-react";
+import { Wrench, Home, Truck, Layout, TrendingUp, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ServiceData {
@@ -158,17 +157,10 @@ export function ProfitSimulator() {
           <h3 className="text-2xl md:text-4xl font-black uppercase mb-4 leading-tight max-w-3xl mx-auto">
             Agora imagina ter vários projetos como esse prontos pra usar no seu dia a dia…
           </h3>
-          <p className="text-lg text-zinc-400 font-bold uppercase tracking-tight mb-10">
+          <p className="text-lg text-zinc-400 font-bold uppercase tracking-tight mb-6">
             É exatamente isso que você recebe no pack 👇
           </p>
-          <Button 
-            size="lg"
-            className="h-20 px-16 text-2xl font-black uppercase tracking-widest bg-white hover:bg-zinc-200 text-black rounded-none border-b-8 border-zinc-400 active:border-b-0 active:translate-y-2 transition-all shadow-2xl group"
-            onClick={() => document.getElementById('planos')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            VER TODOS OS PROJETOS <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-2 transition-transform" />
-          </Button>
-          <p className="mt-6 text-primary font-black uppercase tracking-widest text-sm italic">
+          <p className="text-primary font-black uppercase tracking-widest text-sm italic">
             "Alguns projetos podem se pagar já no primeiro serviço."
           </p>
         </div>

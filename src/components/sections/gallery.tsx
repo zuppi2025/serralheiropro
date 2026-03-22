@@ -16,15 +16,8 @@ export function Gallery() {
   const group2 = PlaceHolderImages.filter((img) => img.id.startsWith("gallery-2-"));
   const group3 = PlaceHolderImages.filter((img) => img.id.startsWith("gallery-3-"));
 
-  const renderCarousel = (images: typeof group1, title: string) => (
-    <div className="mb-20 last:mb-0">
-      <div className="flex items-center gap-4 mb-8">
-        <div className="h-8 w-1.5 bg-primary rounded-full" />
-        <h3 className="text-2xl font-black uppercase tracking-tight text-zinc-800 dark:text-zinc-100">
-          {title}
-        </h3>
-      </div>
-      
+  const renderCarousel = (images: typeof group1) => (
+    <div className="mb-12 last:mb-0">
       <Carousel
         opts={{
           align: "start",
@@ -75,10 +68,10 @@ export function Gallery() {
           </p>
         </div>
         
-        <div className="space-y-20">
-          {renderCarousel(group1, "Projetos de Carretinhas e Reboques")}
-          {renderCarousel(group2, "Estruturas e Portões Profissionais")}
-          {renderCarousel(group3, "Móveis Industriais e Utilidades")}
+        <div className="space-y-4">
+          {renderCarousel(group1)}
+          {renderCarousel(group2)}
+          {renderCarousel(group3)}
         </div>
       </div>
     </section>

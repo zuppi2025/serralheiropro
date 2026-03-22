@@ -7,7 +7,6 @@ import { Testimonials } from "@/components/sections/testimonials";
 import { ProfitSimulator } from "@/components/sections/profit-simulator";
 import { Pricing } from "@/components/sections/pricing";
 import { FAQ } from "@/components/sections/faq";
-import { FooterCTA } from "@/components/sections/footer-cta";
 import { Authority } from "@/components/sections/authority";
 import { Footer } from "@/components/sections/footer";
 
@@ -22,7 +21,6 @@ export default function Home() {
       <ProfitSimulator />
       <Pricing />
       <Authority />
-      <FooterCTA />
       <FAQ />
       <Footer />
     </main>

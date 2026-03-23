@@ -3,20 +3,20 @@ import { Check, ShieldCheck, Wrench, Package, Layout, Clock, Sparkles } from "lu
 
 export function Pricing() {
   return (
-    <section id="planos" className="py-10 md:py-16 bg-zinc-100 dark:bg-zinc-950">
-      <div className="container px-4 mx-auto max-w-6xl">
+    <section id="planos" className="py-10 md:py-16 bg-zinc-100 dark:bg-zinc-950 w-full overflow-hidden px-4">
+      <div className="container px-0 mx-auto max-w-6xl">
         <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-2xl md:text-4xl font-black font-headline uppercase mb-3">
+          <h2 className="text-2xl md:text-4xl font-black font-headline uppercase mb-3 px-2">
             Escolha seu acesso
           </h2>
-          <p className="text-sm md:text-base text-zinc-600 dark:text-zinc-400 max-w-lg mx-auto font-medium">
+          <p className="text-sm md:text-base text-zinc-600 dark:text-zinc-400 max-w-lg mx-auto font-medium px-4">
             Pagamento único. Você paga uma vez e o acesso é seu para sempre.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-stretch max-w-5xl mx-auto w-full">
           {/* Plano Essencial */}
-          <div className="bg-white dark:bg-zinc-900 p-6 md:p-8 border border-zinc-200 dark:border-zinc-800 flex flex-col rounded-sm shadow-sm">
+          <div className="bg-white dark:bg-zinc-900 p-6 md:p-8 border border-zinc-200 dark:border-zinc-800 flex flex-col rounded-sm shadow-sm w-full">
             <div className="mb-6">
               <h3 className="text-xl md:text-2xl font-black uppercase leading-none mb-2">Plano Essencial</h3>
               <p className="text-zinc-500 text-[10px] md:text-sm font-bold uppercase tracking-tighter">O básico para começar a usar no dia a dia</p>
@@ -59,8 +59,8 @@ export function Pricing() {
           </div>
 
           {/* Plano Completo */}
-          <div className="relative bg-zinc-950 dark:bg-zinc-900 p-6 md:p-8 border-4 border-primary flex flex-col text-white shadow-[0_20px_50px_rgba(249,115,22,0.2)] scale-100 md:scale-105 z-10 rounded-sm">
-            <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-4 md:px-6 py-1.5 md:py-2 text-[10px] md:text-sm font-black uppercase tracking-tighter -translate-y-1/2 translate-x-0 md:translate-x-4 shadow-lg">
+          <div className="relative bg-zinc-950 dark:bg-zinc-900 p-6 md:p-8 border-4 border-primary flex flex-col text-white shadow-[0_20px_50px_rgba(249,115,22,0.2)] z-10 rounded-sm w-full md:scale-[1.02]">
+            <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-4 md:px-6 py-1.5 md:py-2 text-[10px] md:text-sm font-black uppercase tracking-tighter -translate-y-1/2 translate-x-0 md:translate-x-4 shadow-lg z-20">
               Mais Escolhido
             </div>
             
@@ -105,15 +105,15 @@ export function Pricing() {
               <div className="pt-4 border-t border-zinc-800 mt-2">
                 <p className="text-[10px] md:text-xs font-black uppercase text-zinc-500 mb-2 md:mb-3 tracking-widest">Bônus Inclusos:</p>
                 <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
+                  <Check className="h-4 w-4 md:h-5 md:w-5 text-green-500 shrink-0 mt-0.5" />
                   <span className="text-[11px] md:text-sm">Dicas simples de preço para não ter prejuízo</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
+                  <Check className="h-4 w-4 md:h-5 md:w-5 text-green-500 shrink-0 mt-0.5" />
                   <span className="text-[11px] md:text-sm">Os serviços que mais saem hoje</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
+                  <Check className="h-4 w-4 md:h-5 md:w-5 text-green-500 shrink-0 mt-0.5" />
                   <span className="text-[11px] md:text-sm">Como mostrar os modelos para o cliente fechar</span>
                 </li>
               </div>
@@ -131,7 +131,7 @@ export function Pricing() {
           </div>
         </div>
 
-        <div className="mt-12 md:mt-16 max-w-lg mx-auto bg-zinc-200 dark:bg-zinc-900/80 p-5 md:p-6 rounded-sm flex items-center gap-4 border border-zinc-300 dark:border-zinc-800 shadow-sm">
+        <div className="mt-12 md:mt-16 max-w-lg mx-auto bg-zinc-200 dark:bg-zinc-900/80 p-5 md:p-6 rounded-sm flex items-center gap-4 border border-zinc-300 dark:border-zinc-800 shadow-sm w-full">
           <ShieldCheck className="h-10 w-10 md:h-12 md:w-12 text-zinc-600 dark:text-zinc-400 shrink-0" />
           <div>
             <p className="font-bold text-base md:text-lg uppercase leading-none mb-1">Garantia Total de 7 Dias</p>

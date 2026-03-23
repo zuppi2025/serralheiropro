@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Star, MessageCircle, CheckCircle2 } from "lucide-react";
@@ -27,35 +26,31 @@ export function Testimonials() {
   ];
 
   return (
-    <section className="py-24 bg-zinc-950 text-white border-y border-zinc-900">
+    <section className="py-10 md:py-16 bg-zinc-950 text-white border-y border-zinc-900">
       <div className="container px-4 mx-auto max-w-6xl">
-        <h2 className="text-3xl md:text-5xl font-black font-headline uppercase text-center mb-20 tracking-tighter italic">
+        <h2 className="text-2xl md:text-5xl font-black font-headline uppercase text-center mb-12 md:mb-16 tracking-tighter italic">
           Feedback de quem já usou
         </h2>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {reviews.map((review, i) => (
-            <div key={i} className="relative p-8 bg-zinc-900/60 border border-zinc-800 rounded-3xl shadow-2xl flex flex-col items-start transition-all hover:border-primary/40 hover:bg-zinc-900/80 group">
-              {/* WhatsApp Icon Indicator */}
-              <div className="absolute top-8 right-8 opacity-70 group-hover:opacity-100 transition-opacity">
-                <MessageCircle className="h-6 w-6 text-[#25D366] fill-[#25D366]/10" />
+            <div key={i} className="relative p-6 md:p-8 bg-zinc-900/60 border border-zinc-800 rounded-3xl shadow-2xl flex flex-col items-start transition-all hover:border-primary/40 hover:bg-zinc-900/80 group">
+              <div className="absolute top-6 right-6 md:top-8 md:right-8 opacity-70 group-hover:opacity-100 transition-opacity">
+                <MessageCircle className="h-5 w-5 md:h-6 md:w-6 text-[#25D366] fill-[#25D366]/10" />
               </div>
 
-              {/* Stars */}
               <div className="flex gap-1 mb-6">
                 {[...Array(5)].map((_, starIndex) => (
-                  <Star key={starIndex} className="h-5 w-5 fill-primary text-primary" />
+                  <Star key={starIndex} className="h-4 w-4 md:h-5 md:w-5 fill-primary text-primary" />
                 ))}
               </div>
 
-              {/* Testimonial Text */}
-              <blockquote className="text-lg md:text-xl font-medium leading-relaxed mb-8 text-zinc-100 italic">
+              <blockquote className="text-base md:text-xl font-medium leading-relaxed mb-8 text-zinc-100 italic">
                 "{review.text}"
               </blockquote>
 
-              {/* Profile info */}
               <div className="mt-auto flex items-center gap-4">
-                <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border-2 border-zinc-700 group-hover:border-primary/60 transition-colors">
+                <div className="relative h-12 w-12 md:h-14 md:w-14 shrink-0 overflow-hidden rounded-full border-2 border-zinc-700 group-hover:border-primary/60 transition-colors">
                   <Image
                     src={review.photo}
                     alt={review.name}
@@ -64,13 +59,13 @@ export function Testimonials() {
                   />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-bold text-base tracking-tight text-white leading-none mb-1">
+                  <span className="font-bold text-sm md:text-base tracking-tight text-white leading-none mb-1">
                     {review.name}
                   </span>
-                  <span className="text-xs text-zinc-500 font-medium mb-2">
+                  <span className="text-[10px] md:text-xs text-zinc-500 font-medium mb-2">
                     {review.location}
                   </span>
-                  <div className="flex items-center gap-1.5 text-[10px] uppercase font-black text-green-500 tracking-wider bg-green-500/10 px-2 py-1 rounded-full border border-green-500/20">
+                  <div className="flex items-center gap-1.5 text-[8px] md:text-[10px] uppercase font-black text-green-500 tracking-wider bg-green-500/10 px-2 py-1 rounded-full border border-green-500/20">
                     <CheckCircle2 className="w-3 h-3" />
                     Cliente Verificado
                   </div>

@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -76,27 +75,27 @@ export function ProfitSimulator() {
   }, [selectedId, selectedService.profit]);
 
   return (
-    <section className="py-24 bg-zinc-950 text-white overflow-hidden relative border-y border-zinc-900">
+    <section className="py-10 md:py-16 bg-zinc-950 text-white overflow-hidden relative border-y border-zinc-900">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(249,115,22,0.08)_0,transparent_70%)] pointer-events-none" />
       
       <div className="container px-4 mx-auto max-w-6xl relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-black font-headline uppercase mb-4 leading-tight tracking-tighter italic">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-2xl md:text-6xl font-black font-headline uppercase mb-4 leading-tight tracking-tighter italic">
             💰 VEJA QUANTO UM PROJETO PODE TE DAR
           </h2>
-          <p className="text-zinc-400 text-xl md:text-2xl font-medium">
+          <p className="text-zinc-400 text-base md:text-2xl font-medium">
             Escolha um tipo de projeto e veja o lucro comum na prática 👇
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-8 items-start">
+        <div className="grid lg:grid-cols-12 gap-6 md:gap-8 items-start">
           <div className="lg:col-span-7 grid grid-cols-2 gap-4">
             {services.map((service) => (
               <button
                 key={service.id}
                 onClick={() => setSelectedId(service.id)}
                 className={cn(
-                  "p-6 flex flex-col items-center justify-center gap-4 rounded-xl border-2 transition-all duration-300 group",
+                  "p-4 md:p-6 flex flex-col items-center justify-center gap-3 md:gap-4 rounded-xl border-2 transition-all duration-300 group",
                   selectedId === service.id
                     ? "bg-primary border-primary text-primary-foreground scale-105 shadow-[0_0_30px_rgba(249,115,22,0.3)]"
                     : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:border-primary/50 hover:bg-zinc-800"
@@ -108,7 +107,7 @@ export function ProfitSimulator() {
                 )}>
                   {service.icon}
                 </div>
-                <span className="font-black uppercase text-sm md:text-base tracking-tight text-center">
+                <span className="font-black uppercase text-xs md:text-base tracking-tight text-center">
                   {service.name}
                 </span>
               </button>
@@ -116,51 +115,51 @@ export function ProfitSimulator() {
           </div>
 
           <div className="lg:col-span-5" ref={resultRef}>
-            <div className="bg-gradient-to-b from-zinc-900 to-black p-8 md:p-10 border-2 border-primary rounded-2xl text-center shadow-[0_20px_60px_rgba(249,115,22,0.2)] relative">
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-8 py-2 rounded-full font-black uppercase text-lg shadow-lg animate-bounce whitespace-nowrap">
+            <div className="bg-gradient-to-b from-zinc-900 to-black p-6 md:p-10 border-2 border-primary rounded-2xl text-center shadow-[0_20px_60px_rgba(249,115,22,0.2)] relative">
+              <div className="absolute -top-4 md:-top-6 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 md:px-8 py-1 md:py-2 rounded-full font-black uppercase text-sm md:text-lg shadow-lg animate-bounce whitespace-nowrap">
                 💸 OLHA ISSO 👇
               </div>
 
-              <div className="mb-8 mt-4">
-                <span className="text-xs font-black uppercase tracking-[0.1em] text-zinc-500 leading-none block mb-2">
+              <div className="mb-6 md:mb-8 mt-4">
+                <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.1em] text-zinc-500 leading-none block mb-2">
                   💰 Média que muitos serralheiros fazem:
                 </span>
                 <div className="flex items-center justify-center gap-2">
-                  <span className="text-3xl font-black text-primary italic">R$</span>
-                  <span className="text-7xl md:text-8xl font-black text-white tabular-nums tracking-tighter">
+                  <span className="text-xl md:text-3xl font-black text-primary italic">R$</span>
+                  <span className="text-5xl md:text-8xl font-black text-white tabular-nums tracking-tighter">
                     {animatedProfit.toLocaleString('pt-BR')}
                   </span>
                 </div>
               </div>
 
-              <div className="space-y-4 pt-8 border-t border-zinc-800">
-                <div className="flex justify-between items-center bg-zinc-950/50 p-4 rounded-lg border border-zinc-800">
-                  <div className="flex items-center gap-3">
-                    <TrendingUp className="h-5 w-5 text-zinc-500" />
-                    <span className="text-xs font-black uppercase text-zinc-500 text-left leading-tight">Fazendo 2 por <br/>semana</span>
+              <div className="space-y-4 pt-6 md:pt-8 border-t border-zinc-800">
+                <div className="flex justify-between items-center bg-zinc-950/50 p-3 md:p-4 rounded-lg border border-zinc-800">
+                  <div className="flex items-center gap-2 md:gap-3">
+                    <TrendingUp className="h-4 w-4 md:h-5 md:w-5 text-zinc-500" />
+                    <span className="text-[10px] md:text-xs font-black uppercase text-zinc-500 text-left leading-tight">Fazendo 2 por <br/>semana</span>
                   </div>
-                  <span className="text-2xl font-black text-green-500">R$ {selectedService.weekly.toLocaleString('pt-BR')}</span>
+                  <span className="text-xl md:text-2xl font-black text-green-500">R$ {selectedService.weekly.toLocaleString('pt-BR')}</span>
                 </div>
-                <div className="flex justify-between items-center bg-primary/10 p-5 rounded-lg border border-primary/30 shadow-inner">
-                  <div className="flex items-center gap-3">
-                    <Zap className="h-6 w-6 text-primary fill-primary" />
-                    <span className="text-sm font-black uppercase text-primary text-left leading-tight">Resultado <br/>no mês</span>
+                <div className="flex justify-between items-center bg-primary/10 p-4 md:p-5 rounded-lg border border-primary/30 shadow-inner">
+                  <div className="flex items-center gap-2 md:gap-3">
+                    <Zap className="h-5 w-5 md:h-6 md:w-6 text-primary fill-primary" />
+                    <span className="text-xs md:text-sm font-black uppercase text-primary text-left leading-tight">Resultado <br/>no mês</span>
                   </div>
-                  <span className="text-4xl font-black text-green-400">R$ {selectedService.monthly.toLocaleString('pt-BR')}</span>
+                  <span className="text-2xl md:text-4xl font-black text-green-400">R$ {selectedService.monthly.toLocaleString('pt-BR')}</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-20 text-center animate-in fade-in slide-in-from-bottom-8 duration-1000">
-          <h3 className="text-2xl md:text-4xl font-black uppercase mb-4 leading-tight max-w-3xl mx-auto">
+        <div className="mt-12 md:mt-20 text-center animate-in fade-in slide-in-from-bottom-8 duration-1000">
+          <h3 className="text-xl md:text-4xl font-black uppercase mb-4 leading-tight max-w-3xl mx-auto">
             Agora imagina ter vários projetos como esse prontos pra usar no seu dia a dia…
           </h3>
-          <p className="text-lg text-zinc-400 font-bold uppercase tracking-tight mb-6">
+          <p className="text-sm md:text-lg text-zinc-400 font-bold uppercase tracking-tight mb-4 md:mb-6">
             É exatamente isso que você recebe no pack 👇
           </p>
-          <p className="text-primary font-black uppercase tracking-widest text-sm italic">
+          <p className="text-primary font-black uppercase tracking-widest text-xs md:text-sm italic">
             "Alguns projetos podem se pagar já no primeiro serviço."
           </p>
         </div>

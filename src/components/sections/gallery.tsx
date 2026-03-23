@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
@@ -61,7 +60,7 @@ export function Gallery() {
     setApi: (api: CarouselApi) => void, 
     current: number
   ) => (
-    <div className="mb-20 last:mb-0">
+    <div className="mb-12 last:mb-0">
       <Carousel
         setApi={setApi}
         opts={{
@@ -72,7 +71,7 @@ export function Gallery() {
       >
         <CarouselContent className="-ml-4">
           {images.map((img, index) => (
-            <CarouselItem key={img.id} className="pl-4 basis-full md:basis-1/2">
+            <CarouselItem key={img.id} className="pl-4 basis-full md:basis-1/2 lg:basis-1/2">
               <Dialog>
                 <DialogTrigger asChild>
                   <div className="relative aspect-[1/1.4] bg-white rounded-xl shadow-xl overflow-hidden border border-zinc-200 cursor-zoom-in group/item">
@@ -106,14 +105,12 @@ export function Gallery() {
           ))}
         </CarouselContent>
         
-        {/* Navegação Desktop */}
         <div className="hidden md:block">
           <CarouselPrevious className="absolute -left-16 top-1/2 -translate-y-1/2 h-12 w-12 border-none bg-zinc-900/10 hover:bg-primary hover:text-white transition-all shadow-none" />
           <CarouselNext className="absolute -right-16 top-1/2 -translate-y-1/2 h-12 w-12 border-none bg-zinc-900/10 hover:bg-primary hover:text-white transition-all shadow-none" />
         </div>
       </Carousel>
 
-      {/* Indicadores de Posição (Bolinhas) */}
       <div className="flex justify-center gap-2 mt-6">
         {images.map((_, i) => (
           <button
@@ -128,7 +125,6 @@ export function Gallery() {
         ))}
       </div>
 
-      {/* Texto Auxiliar */}
       <div className="flex items-center justify-center gap-2 mt-4 text-zinc-400 text-sm font-bold uppercase tracking-widest opacity-60">
         <MousePointer2 className="w-4 h-4" />
         <span>Clique ou arraste para ver mais</span>
@@ -137,18 +133,18 @@ export function Gallery() {
   );
 
   return (
-    <section className="py-24 bg-zinc-50 dark:bg-zinc-950 border-y border-zinc-100 dark:border-zinc-900">
+    <section className="py-10 md:py-16 bg-zinc-50 dark:bg-zinc-950 border-y border-zinc-100 dark:border-zinc-900">
       <div className="container px-4 mx-auto max-w-5xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-black uppercase mb-4 tracking-tighter italic">
+        <div className="text-center mb-10">
+          <h2 className="text-2xl md:text-5xl font-black uppercase mb-3 tracking-tighter italic">
             Veja os projetos por dentro
           </h2>
-          <p className="text-zinc-600 dark:text-zinc-400 font-medium text-lg max-w-2xl mx-auto">
+          <p className="text-zinc-600 dark:text-zinc-400 font-medium text-base md:text-lg max-w-2xl mx-auto">
             Folhas de projeto detalhadas, prontas para imprimir ou visualizar no celular na hora da fabricação.
           </p>
         </div>
         
-        <div className="space-y-12">
+        <div className="space-y-8">
           {renderCarousel(group1, setApi1, current1)}
           {renderCarousel(group2, setApi2, current2)}
           {renderCarousel(group3, setApi3, current3)}

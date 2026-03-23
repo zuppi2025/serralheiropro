@@ -13,7 +13,7 @@ import { FooterCTA } from "@/components/sections/footer-cta";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background font-body pt-24 md:pt-28">
+    <main className="min-h-screen bg-background font-body">
       <Navbar />
       <Hero />
       <Gallery />

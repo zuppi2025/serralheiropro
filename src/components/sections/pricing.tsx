@@ -18,8 +18,8 @@ export function Pricing() {
           {/* Plano Essencial */}
           <div className="bg-white dark:bg-zinc-900 p-6 md:p-10 border border-zinc-200 dark:border-zinc-800 flex flex-col rounded-2xl shadow-sm w-full transition-all hover:border-zinc-300 dark:hover:border-zinc-700">
             <div className="mb-6">
-              <h3 className="text-xl md:text-2xl font-black uppercase tracking-widest text-zinc-500 mb-2">Plano Essencial</h3>
-              <p className="text-xs font-bold text-zinc-400 uppercase tracking-widest">O básico para começar</p>
+              <h3 className="text-2xl md:text-3xl font-black uppercase tracking-widest text-zinc-900 dark:text-zinc-100 mb-2">Plano Essencial</h3>
+              <p className="text-xs md:text-sm font-black text-zinc-600 dark:text-zinc-400 uppercase tracking-widest">O básico para começar</p>
             </div>
 
             <ul className="space-y-4 mb-8 flex-grow">

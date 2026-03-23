@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Wrench, Home, Truck, Layout, TrendingUp, Zap } from "lucide-react";
+import { Wrench, Home, Truck, Layout, TrendingUp, Zap, MousePointer2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ServiceData {
@@ -49,16 +49,39 @@ const services: ServiceData[] = [
 ];
 
 export function ProfitSimulator() {
-  const [selectedId, setSelectedId] = useState<string>("portao");
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const [animatedProfit, setAnimatedProfit] = useState(0);
   const resultRef = useRef<HTMLDivElement>(null);
 
-  const selectedService = services.find(s => s.id === selectedId) || services[0];
+  const selectedService = services.find(s => s.id === selectedId);
+
+  // Som de "caixa registradora" ou clique curto
+  const playSound = () => {
+    const audio = new Audio("https://assets.mixkit.co/active_storage/sfx/2014/2014-preview.mp3");
+    audio.volume = 0.2;
+    audio.play().catch(() => {}); // Ignora erros de política de auto-play
+  };
+
+  const handleSelect = (id: string) => {
+    setSelectedId(id);
+    setHasInteracted(true);
+    playSound();
+    
+    // Auto scroll suave para o resultado após um pequeno delay para a renderização
+    setTimeout(() => {
+      if (resultRef.current) {
+        resultRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 100);
+  };
 
   useEffect(() => {
+    if (!selectedService) return;
+
     let start = 0;
     const end = selectedService.profit;
-    const duration = 500;
+    const duration = 600;
     const increment = end / (duration / 16);
     
     const timer = setInterval(() => {
@@ -72,7 +95,7 @@ export function ProfitSimulator() {
     }, 16);
 
     return () => clearInterval(timer);
-  }, [selectedId, selectedService.profit]);
+  }, [selectedId, selectedService]);
 
   return (
     <section className="py-10 md:py-16 bg-zinc-950 text-white overflow-hidden relative border-y border-zinc-900">
@@ -80,90 +103,130 @@ export function ProfitSimulator() {
       
       <div className="container px-4 mx-auto max-w-6xl relative z-10">
         <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-2xl md:text-6xl font-black font-headline uppercase mb-4 leading-tight tracking-tighter italic">
+          <h2 className="text-2xl md:text-5xl lg:text-6xl font-black font-headline uppercase mb-4 leading-tight tracking-tighter italic">
             💰 VEJA QUANTO UM PROJETO PODE TE DAR
           </h2>
           <p className="text-zinc-400 text-base md:text-2xl font-medium">
-            Escolha um tipo de projeto e veja o lucro comum na prática 👇
+            Escolha um tipo de projeto abaixo para simular o lucro na prática 👇
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-6 md:gap-8 items-start">
-          <div className="lg:col-span-7 grid grid-cols-2 gap-4">
+        <div className={cn(
+          "grid gap-8 items-start transition-all duration-700",
+          hasInteracted ? "lg:grid-cols-12" : "max-w-3xl mx-auto"
+        )}>
+          <div className={cn(
+            "grid grid-cols-2 gap-4 transition-all duration-500",
+            hasInteracted ? "lg:col-span-7" : "w-full"
+          )}>
             {services.map((service) => (
               <button
                 key={service.id}
-                onClick={() => setSelectedId(service.id)}
+                onClick={() => handleSelect(service.id)}
                 className={cn(
-                  "p-4 md:p-6 flex flex-col items-center justify-center gap-3 md:gap-4 rounded-xl border-2 transition-all duration-300 group",
+                  "p-4 md:p-8 flex flex-col items-center justify-center gap-3 md:gap-5 rounded-2xl border-2 transition-all duration-300 group relative overflow-hidden",
                   selectedId === service.id
-                    ? "bg-primary border-primary text-primary-foreground scale-105 shadow-[0_0_30px_rgba(249,115,22,0.3)]"
-                    : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:border-primary/50 hover:bg-zinc-800"
+                    ? "bg-primary border-primary text-primary-foreground scale-105 shadow-[0_0_40px_rgba(249,115,22,0.4)] z-20"
+                    : "bg-zinc-900/50 border-zinc-800 text-zinc-400 hover:border-primary/50 hover:bg-zinc-900"
                 )}
               >
+                {!hasInteracted && (
+                  <div className="absolute top-2 right-2 opacity-20">
+                    <MousePointer2 className="h-4 w-4" />
+                  </div>
+                )}
                 <div className={cn(
-                  "transition-transform duration-300 group-hover:scale-110",
+                  "transition-transform duration-500 group-hover:scale-110",
                   selectedId === service.id ? "text-primary-foreground" : "text-primary"
                 )}>
                   {service.icon}
                 </div>
-                <span className="font-black uppercase text-xs md:text-base tracking-tight text-center">
+                <span className="font-black uppercase text-sm md:text-xl tracking-tighter text-center">
                   {service.name}
                 </span>
+                
+                {selectedId === service.id && (
+                  <div className="absolute inset-0 bg-white/10 animate-pulse pointer-events-none" />
+                )}
               </button>
             ))}
           </div>
 
-          <div className="lg:col-span-5" ref={resultRef}>
-            <div className="bg-gradient-to-b from-zinc-900 to-black p-6 md:p-10 border-2 border-primary rounded-2xl text-center shadow-[0_20px_60px_rgba(249,115,22,0.2)] relative">
-              <div className="absolute -top-4 md:-top-6 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 md:px-8 py-1 md:py-2 rounded-full font-black uppercase text-sm md:text-lg shadow-lg animate-bounce whitespace-nowrap">
-                💸 OLHA ISSO 👇
-              </div>
+          {hasInteracted && selectedService && (
+            <div className="lg:col-span-5 animate-in fade-in slide-in-from-right-10 duration-700" ref={resultRef}>
+              <div className="bg-gradient-to-b from-zinc-900 to-black p-8 md:p-12 border-2 border-primary rounded-3xl text-center shadow-[0_20px_80px_rgba(249,115,22,0.25)] relative group/card">
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-6 py-2 rounded-full font-black uppercase text-sm md:text-lg shadow-xl animate-bounce whitespace-nowrap z-30">
+                  💸 LUCRO REAL 👇
+                </div>
 
-              <div className="mb-6 md:mb-8 mt-4">
-                <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.1em] text-zinc-500 leading-none block mb-2">
-                  💰 Média que muitos serralheiros fazem:
-                </span>
-                <div className="flex items-center justify-center gap-2">
-                  <span className="text-xl md:text-3xl font-black text-primary italic">R$</span>
-                  <span className="text-5xl md:text-8xl font-black text-white tabular-nums tracking-tighter">
-                    {animatedProfit.toLocaleString('pt-BR')}
+                <div className="mb-8 md:mb-10 mt-2">
+                  <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-zinc-500 leading-none block mb-4">
+                    💰 Lucro livre estimado:
                   </span>
+                  <div className="flex items-center justify-center gap-2 relative">
+                    <span className="text-2xl md:text-4xl font-black text-primary italic">R$</span>
+                    <span className="text-6xl md:text-8xl lg:text-9xl font-black text-white tabular-nums tracking-tighter drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+                      {animatedProfit.toLocaleString('pt-BR')}
+                    </span>
+                    {/* Brilho animado nos números */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full animate-[shimmer_2s_infinite] pointer-events-none" />
+                  </div>
                 </div>
-              </div>
 
-              <div className="space-y-4 pt-6 md:pt-8 border-t border-zinc-800">
-                <div className="flex justify-between items-center bg-zinc-950/50 p-3 md:p-4 rounded-lg border border-zinc-800">
-                  <div className="flex items-center gap-2 md:gap-3">
-                    <TrendingUp className="h-4 w-4 md:h-5 md:w-5 text-zinc-500" />
-                    <span className="text-[10px] md:text-xs font-black uppercase text-zinc-500 text-left leading-tight">Fazendo 2 por <br/>semana</span>
+                <div className="space-y-4 pt-8 md:pt-10 border-t border-zinc-800">
+                  <div className="flex justify-between items-center bg-zinc-950/80 p-4 md:p-5 rounded-xl border border-zinc-800 transition-all hover:bg-zinc-900">
+                    <div className="flex items-center gap-3">
+                      <TrendingUp className="h-5 w-5 md:h-6 md:w-6 text-zinc-500" />
+                      <div className="text-left">
+                        <span className="text-[10px] font-black uppercase text-zinc-500 leading-none block">Fazendo apenas</span>
+                        <span className="text-xs font-black uppercase text-zinc-400">2 por semana</span>
+                      </div>
+                    </div>
+                    <span className="text-2xl md:text-3xl font-black text-green-500">R$ {selectedService.weekly.toLocaleString('pt-BR')}</span>
                   </div>
-                  <span className="text-xl md:text-2xl font-black text-green-500">R$ {selectedService.weekly.toLocaleString('pt-BR')}</span>
-                </div>
-                <div className="flex justify-between items-center bg-primary/10 p-4 md:p-5 rounded-lg border border-primary/30 shadow-inner">
-                  <div className="flex items-center gap-2 md:gap-3">
-                    <Zap className="h-5 w-5 md:h-6 md:w-6 text-primary fill-primary" />
-                    <span className="text-xs md:text-sm font-black uppercase text-primary text-left leading-tight">Resultado <br/>no mês</span>
+                  
+                  <div className="flex justify-between items-center bg-primary/10 p-5 md:p-7 rounded-xl border border-primary/40 shadow-[inset_0_0_20px_rgba(249,115,22,0.1)] transition-all hover:bg-primary/20">
+                    <div className="flex items-center gap-3">
+                      <Zap className="h-6 w-6 md:h-8 md:w-8 text-primary fill-primary animate-pulse" />
+                      <div className="text-left">
+                        <span className="text-[10px] font-black uppercase text-primary leading-none block">Resultado extra</span>
+                        <span className="text-sm font-black uppercase text-primary">No final do mês</span>
+                      </div>
+                    </div>
+                    <span className="text-3xl md:text-5xl font-black text-green-400 drop-shadow-[0_0_15px_rgba(74,222,128,0.3)]">
+                      R$ {selectedService.monthly.toLocaleString('pt-BR')}
+                    </span>
                   </div>
-                  <span className="text-2xl md:text-4xl font-black text-green-400">R$ {selectedService.monthly.toLocaleString('pt-BR')}</span>
                 </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
 
-        <div className="mt-12 md:mt-20 text-center animate-in fade-in slide-in-from-bottom-8 duration-1000">
-          <h3 className="text-xl md:text-4xl font-black uppercase mb-4 leading-tight max-w-3xl mx-auto">
-            Agora imagina ter vários projetos como esse prontos pra usar no seu dia a dia…
-          </h3>
-          <p className="text-sm md:text-lg text-zinc-400 font-bold uppercase tracking-tight mb-4 md:mb-6">
-            É exatamente isso que você recebe no pack 👇
-          </p>
-          <p className="text-primary font-black uppercase tracking-widest text-xs md:text-sm italic">
-            "Alguns projetos podem se pagar já no primeiro serviço."
-          </p>
-        </div>
+        {hasInteracted && (
+          <div className="mt-12 md:mt-20 text-center animate-in fade-in slide-in-from-bottom-10 duration-1000">
+            <h3 className="text-xl md:text-4xl font-black uppercase mb-4 leading-tight max-w-3xl mx-auto italic tracking-tighter">
+              Agora imagina ter vários projetos como esse prontos pra usar no seu dia a dia…
+            </h3>
+            <p className="text-sm md:text-lg text-zinc-400 font-bold uppercase tracking-tight mb-4 md:mb-6">
+              É exatamente isso que você recebe no pack 👇
+            </p>
+            <div className="inline-block px-6 py-2 bg-primary/10 border border-primary/20 rounded-full">
+              <p className="text-primary font-black uppercase tracking-widest text-xs md:text-sm italic">
+                "Um único serviço já paga 10x o valor do seu investimento."
+              </p>
+            </div>
+          </div>
+        )}
       </div>
+
+      <style jsx global>{`
+        @keyframes shimmer {
+          100% {
+            transform: translateX(100%);
+          }
+        }
+      `}</style>
     </section>
   );
 }

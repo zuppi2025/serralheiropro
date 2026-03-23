@@ -1,142 +1,113 @@
 import { Button } from "@/components/ui/button";
-import { Check, ShieldCheck, Wrench, Package, Layout, Clock, Sparkles } from "lucide-react";
+import { Check, ShieldCheck, Sparkles, Star } from "lucide-react";
 
 export function Pricing() {
   return (
     <section id="planos" className="py-10 md:py-16 bg-zinc-100 dark:bg-zinc-950 w-full overflow-hidden px-4">
-      <div className="container px-0 mx-auto max-w-6xl">
+      <div className="container px-0 mx-auto max-w-5xl">
         <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-2xl md:text-4xl font-black font-headline uppercase mb-3 px-2">
+          <h2 className="text-2xl md:text-5xl font-black font-headline uppercase mb-3 px-2 tracking-tighter italic">
             Escolha seu acesso
           </h2>
-          <p className="text-sm md:text-base text-zinc-600 dark:text-zinc-400 max-w-lg mx-auto font-medium px-4">
-            Pagamento único. Você paga uma vez e o acesso é seu para sempre.
+          <p className="text-sm md:text-lg text-zinc-600 dark:text-zinc-400 max-w-lg mx-auto font-bold uppercase tracking-tight px-4">
+            Pagamento único. Acesso vitalício para sempre.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-stretch max-w-5xl mx-auto w-full">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-stretch max-w-4xl mx-auto w-full">
           {/* Plano Essencial */}
-          <div className="bg-white dark:bg-zinc-900 p-6 md:p-8 border border-zinc-200 dark:border-zinc-800 flex flex-col rounded-sm shadow-sm w-full">
-            <div className="mb-6">
-              <h3 className="text-xl md:text-2xl font-black uppercase leading-none mb-2">Plano Essencial</h3>
-              <p className="text-zinc-500 text-[10px] md:text-sm font-bold uppercase tracking-tighter">O básico para começar a usar no dia a dia</p>
-            </div>
-            
-            <div className="mb-6 md:mb-8">
-              <span className="text-zinc-400 line-through text-base md:text-lg font-bold block leading-none">De R$ 97,00</span>
+          <div className="bg-white dark:bg-zinc-900 p-6 md:p-10 border border-zinc-200 dark:border-zinc-800 flex flex-col rounded-xl shadow-sm w-full transition-all hover:border-zinc-300 dark:hover:border-zinc-700">
+            <div className="mb-8">
+              <h3 className="text-lg md:text-xl font-black uppercase tracking-widest text-zinc-500 mb-4">Plano Essencial</h3>
               <div className="flex items-baseline gap-1">
-                <span className="text-xs md:text-sm font-bold">R$</span>
-                <span className="text-4xl md:text-5xl font-black">17,00</span>
+                <span className="text-xl md:text-2xl font-black">R$</span>
+                <span className="text-5xl md:text-7xl font-black tracking-tighter">17,00</span>
               </div>
             </div>
 
-            <ul className="space-y-3 md:space-y-4 mb-6 md:mb-8 flex-grow">
+            <ul className="space-y-4 mb-10 flex-grow">
               <li className="flex items-start gap-3">
                 <Check className="h-5 w-5 text-zinc-400 shrink-0 mt-0.5" />
-                <span className="text-sm md:text-base text-zinc-700 dark:text-zinc-300"><b>+300 projetos</b> de serralheria prontos</span>
+                <span className="text-sm md:text-lg font-medium text-zinc-700 dark:text-zinc-300"><b>+300 projetos</b> prontos</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="h-5 w-5 text-zinc-400 shrink-0 mt-0.5" />
-                <span className="text-sm md:text-base text-zinc-700 dark:text-zinc-300">Modelos de portões, grades e estruturas simples</span>
+                <span className="text-sm md:text-lg font-medium text-zinc-700 dark:text-zinc-300">Modelos básicos de serralheria</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="h-5 w-5 text-zinc-400 shrink-0 mt-0.5" />
-                <span className="text-sm md:text-base text-zinc-700 dark:text-zinc-300">Projetos diretos para execução</span>
+                <span className="text-sm md:text-lg font-medium text-zinc-700 dark:text-zinc-300">Projetos diretos pra execução</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="h-5 w-5 text-zinc-400 shrink-0 mt-0.5" />
-                <span className="text-sm md:text-base text-zinc-700 dark:text-zinc-300">Arquivos organizados e fáceis de acessar</span>
+                <span className="text-sm md:text-lg font-medium text-zinc-700 dark:text-zinc-300">Arquivos organizados</span>
               </li>
               <li className="flex items-start gap-3">
-                <Check className="h-5 w-5 text-zinc-400 shrink-0 mt-0.5" />
-                <span className="text-sm md:text-base text-zinc-700 dark:text-zinc-300 font-bold italic">Acesso imediato e vitalício</span>
+                <Check className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
+                <span className="text-sm md:text-lg font-bold italic text-zinc-800 dark:text-zinc-200">Acesso vitalício</span>
               </li>
             </ul>
 
-            <Button variant="outline" className="w-full h-12 md:h-14 text-base md:text-lg font-black uppercase border-2 border-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all rounded-none">
+            <Button variant="outline" className="w-full h-14 md:h-16 text-base md:text-xl font-black uppercase border-2 border-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all rounded-none">
               ACESSAR AGORA
             </Button>
           </div>
 
           {/* Plano Completo */}
-          <div className="relative bg-zinc-950 dark:bg-zinc-900 p-6 md:p-8 border-4 border-primary flex flex-col text-white shadow-[0_20px_50px_rgba(249,115,22,0.2)] z-10 rounded-sm w-full md:scale-[1.02]">
-            <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-4 md:px-6 py-1.5 md:py-2 text-[10px] md:text-sm font-black uppercase tracking-tighter -translate-y-1/2 translate-x-0 md:translate-x-4 shadow-lg z-20">
-              Mais Escolhido
+          <div className="relative bg-zinc-950 dark:bg-zinc-900 p-6 md:p-10 border-4 border-primary flex flex-col text-white shadow-[0_30px_60px_rgba(249,115,22,0.3)] z-10 rounded-xl w-full md:scale-[1.05]">
+            <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-4 md:px-6 py-1.5 md:py-2 text-[10px] md:text-xs font-black uppercase tracking-widest -translate-y-1/2 translate-x-0 md:translate-x-4 shadow-xl z-20">
+              OFERTA LIMITADA
             </div>
             
-            <div className="mb-6">
-              <h3 className="text-xl md:text-2xl font-black uppercase leading-none mb-2 text-primary flex items-center gap-2">
-                Plano Completo <Sparkles className="h-5 w-5 md:h-6 md:w-6 fill-primary" />
+            <div className="mb-8">
+              <h3 className="text-xl md:text-2xl font-black uppercase tracking-widest text-primary mb-4 flex items-center gap-2">
+                PLANO COMPLETO <Star className="h-5 w-5 md:h-6 md:w-6 fill-primary" />
               </h3>
-              <p className="text-zinc-400 text-[10px] md:text-sm font-bold uppercase tracking-tighter">Mais projetos + mais opções para ganhar dinheiro</p>
-            </div>
-
-            <div className="mb-6 md:mb-8">
-              <span className="text-zinc-500 line-through text-base md:text-lg font-bold block leading-none">De R$ 147,00</span>
               <div className="flex items-baseline gap-1">
-                <span className="text-xs md:text-sm font-bold text-primary">R$</span>
-                <span className="text-5xl md:text-6xl font-black">27,00</span>
+                <span className="text-xl md:text-2xl font-black text-primary">R$</span>
+                <span className="text-6xl md:text-8xl font-black tracking-tighter">27,00</span>
               </div>
-              <p className="text-primary text-[10px] font-black uppercase mt-1 tracking-widest">Oferta por tempo limitado</p>
             </div>
 
-            <ul className="space-y-3 md:space-y-4 mb-6 md:mb-8 flex-grow">
+            <ul className="space-y-4 mb-10 flex-grow">
               <li className="flex items-start gap-3">
-                <Wrench className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                <span className="text-sm md:text-base font-bold text-white leading-tight"><b>+650 projetos</b> completos de serralheria</span>
+                <Sparkles className="h-5 w-5 text-primary shrink-0 mt-0.5 fill-primary/20" />
+                <span className="text-sm md:text-lg font-black text-white"><b>+1000 projetos</b> completos</span>
               </li>
               <li className="flex items-start gap-3">
-                <Layout className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                <span className="text-sm md:text-base">Portões, grades e estruturas modernas</span>
+                <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                <span className="text-sm md:text-lg font-medium">Portões, móveis e estruturas</span>
               </li>
               <li className="flex items-start gap-3">
-                <Package className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                <span className="text-sm md:text-base font-bold text-orange-200">+20 projetos de carretinhas de reboque</span>
+                <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                <span className="text-sm md:text-lg font-bold text-orange-200">Projetos de carretinhas</span>
               </li>
               <li className="flex items-start gap-3">
-                <Wrench className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                <span className="text-sm md:text-base">Móveis industriais (mesas, bancadas, estantes)</span>
+                <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                <span className="text-sm md:text-lg font-medium">Modelos mais pedidos</span>
               </li>
               <li className="flex items-start gap-3">
-                <Clock className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                <span className="text-sm md:text-base">+100 ideias de projetos simples e rápidos</span>
+                <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                <span className="text-sm md:text-lg font-bold text-green-400">Planilha de precificação</span>
               </li>
-              
-              <div className="pt-4 border-t border-zinc-800 mt-2">
-                <p className="text-[10px] md:text-xs font-black uppercase text-zinc-500 mb-2 md:mb-3 tracking-widest">Bônus Inclusos:</p>
-                <li className="flex items-start gap-3">
-                  <Check className="h-4 w-4 md:h-5 md:w-5 text-green-500 shrink-0 mt-0.5" />
-                  <span className="text-[11px] md:text-sm">Dicas simples de preço para não ter prejuízo</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-4 w-4 md:h-5 md:w-5 text-green-500 shrink-0 mt-0.5" />
-                  <span className="text-[11px] md:text-sm">Os serviços que mais saem hoje</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-4 w-4 md:h-5 md:w-5 text-green-500 shrink-0 mt-0.5" />
-                  <span className="text-[11px] md:text-sm">Como mostrar os modelos para o cliente fechar</span>
-                </li>
-              </div>
-
-              <li className="mt-4 md:mt-6 p-3 bg-primary/10 border border-primary/20 rounded-sm text-center">
-                <span className="text-xs md:text-sm font-black uppercase text-primary leading-tight">
-                  "Inclui projetos que podem se pagar no primeiro serviço"
-                </span>
+              <li className="flex items-start gap-3">
+                <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                <span className="text-sm md:text-lg font-bold italic">Acesso vitalício</span>
               </li>
             </ul>
 
-            <Button className="w-full h-14 md:h-16 text-lg md:text-xl font-black uppercase bg-primary hover:bg-orange-500 text-primary-foreground shadow-[0_0_20px_rgba(249,115,22,0.4)] transition-all rounded-none border-b-4 border-orange-700 active:border-b-0 active:translate-y-1">
+            <Button className="w-full h-16 md:h-20 text-lg md:text-2xl font-black uppercase bg-primary hover:bg-orange-500 text-primary-foreground shadow-[0_0_30px_rgba(249,115,22,0.5)] transition-all rounded-none border-b-8 border-orange-700 active:border-b-0 active:translate-y-2">
               PEGAR ACESSO COMPLETO
             </Button>
           </div>
         </div>
 
-        <div className="mt-12 md:mt-16 max-w-lg mx-auto bg-zinc-200 dark:bg-zinc-900/80 p-5 md:p-6 rounded-sm flex items-center gap-4 border border-zinc-300 dark:border-zinc-800 shadow-sm w-full">
-          <ShieldCheck className="h-10 w-10 md:h-12 md:w-12 text-zinc-600 dark:text-zinc-400 shrink-0" />
+        <div className="mt-12 md:mt-20 max-w-xl mx-auto bg-zinc-200 dark:bg-zinc-900/80 p-6 md:p-8 rounded-xl flex items-center gap-6 border border-zinc-300 dark:border-zinc-800 shadow-sm w-full">
+          <ShieldCheck className="h-12 w-12 md:h-16 md:w-16 text-zinc-600 dark:text-zinc-400 shrink-0" />
           <div>
-            <p className="font-bold text-base md:text-lg uppercase leading-none mb-1">Garantia Total de 7 Dias</p>
-            <p className="text-xs md:text-sm text-zinc-600 dark:text-zinc-400 leading-tight">
-              Acesse tudo agora. Se você não gostar ou achar que não é pra você, devolvemos seu dinheiro na hora. Sem burocracia.
+            <p className="font-black text-lg md:text-2xl uppercase tracking-tighter leading-none mb-2">Garantia Total de 7 Dias</p>
+            <p className="text-xs md:text-base text-zinc-600 dark:text-zinc-400 font-medium leading-tight">
+              Acesse tudo agora. Se não gostar, devolvemos seu dinheiro na hora. Sem burocracia e sem perguntas.
             </p>
           </div>
         </div>

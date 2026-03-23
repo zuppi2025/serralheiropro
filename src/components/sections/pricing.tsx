@@ -15,10 +15,10 @@ export function Pricing() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-stretch max-w-4xl mx-auto w-full">
-          {/* Plano Essencial */}
+          {/* Plano Básico */}
           <div className="bg-white dark:bg-zinc-900 p-6 md:p-10 border border-zinc-200 dark:border-zinc-800 flex flex-col rounded-xl shadow-sm w-full transition-all hover:border-zinc-300 dark:hover:border-zinc-700">
             <div className="mb-8">
-              <h3 className="text-lg md:text-xl font-black uppercase tracking-widest text-zinc-500 mb-4">Plano Essencial</h3>
+              <h3 className="text-lg md:text-xl font-black uppercase tracking-widest text-zinc-500 mb-4">Plano Básico</h3>
               <div className="flex items-baseline gap-1">
                 <span className="text-xl md:text-2xl font-black">R$</span>
                 <span className="text-5xl md:text-7xl font-black tracking-tighter">17,00</span>
@@ -28,19 +28,19 @@ export function Pricing() {
             <ul className="space-y-4 mb-10 flex-grow">
               <li className="flex items-start gap-3">
                 <Check className="h-5 w-5 text-zinc-400 shrink-0 mt-0.5" />
-                <span className="text-sm md:text-lg font-medium text-zinc-700 dark:text-zinc-300"><b>+300 projetos</b> prontos</span>
+                <span className="text-sm md:text-lg font-medium text-zinc-700 dark:text-zinc-300"><b>300 projetos</b> de serralheria</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="h-5 w-5 text-zinc-400 shrink-0 mt-0.5" />
-                <span className="text-sm md:text-lg font-medium text-zinc-700 dark:text-zinc-300">Modelos básicos de serralheria</span>
+                <span className="text-sm md:text-lg font-medium text-zinc-700 dark:text-zinc-300">Planilha automática de precificação</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="h-5 w-5 text-zinc-400 shrink-0 mt-0.5" />
-                <span className="text-sm md:text-lg font-medium text-zinc-700 dark:text-zinc-300">Projetos diretos pra execução</span>
+                <span className="text-sm md:text-lg font-medium text-zinc-700 dark:text-zinc-300">Lista de fornecedores</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="h-5 w-5 text-zinc-400 shrink-0 mt-0.5" />
-                <span className="text-sm md:text-lg font-medium text-zinc-700 dark:text-zinc-300">Arquivos organizados</span>
+                <span className="text-sm md:text-lg font-medium text-zinc-700 dark:text-zinc-300">Guia: quanto cobrar sem perder serviço</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />

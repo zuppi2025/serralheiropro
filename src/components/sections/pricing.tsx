@@ -56,7 +56,7 @@ export function Pricing() {
           {/* Plano Completo */}
           <div className="relative bg-zinc-950 dark:bg-zinc-900 p-6 md:p-8 border-4 border-primary flex flex-col text-white shadow-[0_30px_60px_rgba(249,115,22,0.3)] z-10 rounded-xl w-full md:scale-[1.05]">
             <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-4 md:px-6 py-1.5 md:py-2 text-[10px] md:text-xs font-black uppercase tracking-widest -translate-y-1/2 translate-x-0 md:translate-x-4 shadow-xl z-20">
-              OFERTA LIMITADA
+              ⚠️ PLANO MAIS VENDIDO
             </div>
             
             <div className="mb-6">

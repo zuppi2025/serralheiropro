@@ -56,11 +56,10 @@ export function ProfitSimulator() {
 
   const selectedService = services.find(s => s.id === selectedId);
 
-  // Som de "caixa registradora" ou clique curto
   const playSound = () => {
     const audio = new Audio("https://assets.mixkit.co/active_storage/sfx/2014/2014-preview.mp3");
     audio.volume = 0.2;
-    audio.play().catch(() => {}); // Ignora erros de política de auto-play
+    audio.play().catch(() => {});
   };
 
   const handleSelect = (id: string) => {
@@ -68,7 +67,6 @@ export function ProfitSimulator() {
     setHasInteracted(true);
     playSound();
     
-    // Auto scroll suave para o resultado após um pequeno delay para a renderização
     setTimeout(() => {
       if (resultRef.current) {
         resultRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -160,15 +158,14 @@ export function ProfitSimulator() {
                 </div>
 
                 <div className="mb-8 md:mb-10 mt-2">
-                  <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-zinc-500 leading-none block mb-4">
-                    💰 Lucro livre estimado:
+                  <span className="text-xs md:text-sm font-black uppercase tracking-widest text-zinc-300 leading-none block mb-4">
+                    💰 LUCRO LIVRE POR PROJETO:
                   </span>
                   <div className="flex items-center justify-center gap-2 relative">
                     <span className="text-2xl md:text-4xl font-black text-primary italic">R$</span>
                     <span className="text-6xl md:text-8xl lg:text-9xl font-black text-white tabular-nums tracking-tighter drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">
                       {animatedProfit.toLocaleString('pt-BR')}
                     </span>
-                    {/* Brilho animado nos números */}
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full animate-[shimmer_2s_infinite] pointer-events-none" />
                   </div>
                 </div>
@@ -176,10 +173,10 @@ export function ProfitSimulator() {
                 <div className="space-y-4 pt-8 md:pt-10 border-t border-zinc-800">
                   <div className="flex justify-between items-center bg-zinc-950/80 p-4 md:p-5 rounded-xl border border-zinc-800 transition-all hover:bg-zinc-900">
                     <div className="flex items-center gap-3">
-                      <TrendingUp className="h-5 w-5 md:h-6 md:w-6 text-zinc-500" />
+                      <TrendingUp className="h-6 w-6 md:h-7 md:w-7 text-primary" />
                       <div className="text-left">
-                        <span className="text-[10px] font-black uppercase text-zinc-500 leading-none block">Fazendo apenas</span>
-                        <span className="text-xs font-black uppercase text-zinc-400">2 por semana</span>
+                        <span className="text-[10px] md:text-xs font-black uppercase text-zinc-400 leading-none block">Fazendo apenas</span>
+                        <span className="text-sm md:text-base font-black uppercase text-white tracking-tight">2 por semana</span>
                       </div>
                     </div>
                     <span className="text-2xl md:text-3xl font-black text-green-500">R$ {selectedService.weekly.toLocaleString('pt-BR')}</span>
@@ -189,8 +186,8 @@ export function ProfitSimulator() {
                     <div className="flex items-center gap-3">
                       <Zap className="h-6 w-6 md:h-8 md:w-8 text-primary fill-primary animate-pulse" />
                       <div className="text-left">
-                        <span className="text-[10px] font-black uppercase text-primary leading-none block">Resultado extra</span>
-                        <span className="text-sm font-black uppercase text-primary">No final do mês</span>
+                        <span className="text-[10px] md:text-xs font-black uppercase text-primary leading-none block">Resultado extra</span>
+                        <span className="text-sm md:text-lg font-black uppercase text-white tracking-tight">No final do mês</span>
                       </div>
                     </div>
                     <span className="text-3xl md:text-5xl font-black text-green-400 drop-shadow-[0_0_15px_rgba(74,222,128,0.3)]">

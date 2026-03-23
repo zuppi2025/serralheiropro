@@ -49,7 +49,7 @@ export function Pricing() {
               <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest block mb-1">Pagamento único de:</span>
               <div className="flex items-baseline gap-1">
                 <span className="text-2xl font-black">R$</span>
-                <span className="text-5xl md:text-7xl font-black tracking-tighter">17,00</span>
+                <span className="text-5xl md:text-7xl font-black tracking-tighter">10,00</span>
               </div>
             </div>
 

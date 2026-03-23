@@ -9,7 +9,7 @@ export function Hero() {
   const heroMain = PlaceHolderImages.find((img) => img.id === "hero-main");
 
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-zinc-950 text-white w-full">
+    <section className="relative min-h-[70vh] flex items-start justify-center overflow-hidden bg-zinc-950 text-white w-full">
       {heroBg && (
         <div className="absolute inset-0 z-0">
           <Image
@@ -24,10 +24,10 @@ export function Hero() {
         </div>
       )}
       
-      <div className="container relative z-10 px-4 py-16 md:py-24 text-center max-w-5xl mx-auto overflow-hidden">
-        <div className="mb-10">
-          <h1 className="flex flex-col gap-2 md:gap-4 mb-6">
-            <span className="text-xl md:text-4xl font-black tracking-tighter text-white uppercase italic">
+      <div className="container relative z-10 px-4 pt-8 pb-12 md:pt-10 md:pb-20 text-center max-w-5xl mx-auto overflow-hidden">
+        <div className="mb-8 md:mb-10">
+          <h1 className="flex flex-col gap-1 md:gap-3 mb-5">
+            <span className="text-lg md:text-3xl font-black tracking-tighter text-white uppercase italic">
               PACK <span className="text-primary underline decoration-primary/30">SERRALHEIRO PRO</span>
             </span>
             <span className="text-3xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase leading-[0.9] text-balance">
@@ -44,7 +44,7 @@ export function Hero() {
         </div>
         
         {heroMain && (
-          <div className="relative w-full max-w-4xl mx-auto mb-10 px-2">
+          <div className="relative w-full max-w-4xl mx-auto mb-8 md:mb-10 px-2">
             <div className="absolute -inset-1 bg-gradient-to-r from-primary/50 to-orange-600/50 rounded-sm blur opacity-25"></div>
             <Image
               src={heroMain.imageUrl}

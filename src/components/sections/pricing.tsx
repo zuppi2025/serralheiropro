@@ -50,7 +50,7 @@ export function Pricing() {
               <span className="text-xs font-bold text-zinc-500 uppercase tracking-widest block mb-1">Pagamento único de:</span>
               <div className="flex items-baseline gap-1">
                 <span className="text-2xl font-black text-white">R$</span>
-                <span className="text-5xl md:text-7xl font-black tracking-tighter text-white">10,00</span>
+                <span id="price-value-essential" className="text-5xl md:text-7xl font-black tracking-tighter text-white">10,00</span>
               </div>
             </div>
 
@@ -106,7 +106,7 @@ export function Pricing() {
               <span className="text-xs font-bold text-zinc-500 uppercase tracking-widest block mb-1">Pagamento único de:</span>
               <div className="flex items-baseline gap-1">
                 <span className="text-2xl md:text-3xl font-black text-primary">R$</span>
-                <span className="text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none text-white">27,00</span>
+                <span id="price-value-complete" className="text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-white">27,00</span>
               </div>
             </div>
 

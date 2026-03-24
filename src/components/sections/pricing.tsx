@@ -17,7 +17,7 @@ export function Pricing() {
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-stretch max-w-4xl mx-auto w-full pt-8">
           {/* Plano Essencial */}
-          <div className="bg-zinc-900 p-6 md:p-10 border border-zinc-800 flex flex-col rounded-2xl shadow-sm w-full transition-all hover:border-zinc-700">
+          <div className="bg-zinc-900 p-6 md:p-10 border border-zinc-800 flex flex-col rounded-2xl shadow-sm w-full transition-all hover:border-zinc-700 relative z-10">
             <div className="mb-6">
               <h3 className="text-2xl md:text-3xl font-black uppercase tracking-widest text-white mb-2">Plano Essencial</h3>
               <p className="text-xs md:text-sm font-black text-zinc-400 uppercase tracking-widest">O básico para começar</p>
@@ -50,7 +50,7 @@ export function Pricing() {
               <span className="text-xs font-bold text-zinc-500 uppercase tracking-widest block mb-1">Pagamento único de:</span>
               <div className="flex items-baseline gap-1">
                 <span className="text-2xl font-black text-white">R$</span>
-                <span id="price-value-essential" className="text-5xl md:text-7xl font-black tracking-tighter text-white">10,00</span>
+                <span id="price-value-essential" className="text-5xl md:text-7xl font-black tracking-tighter text-white block">10,00</span>
               </div>
             </div>
 
@@ -60,8 +60,9 @@ export function Pricing() {
           </div>
 
           {/* Plano Completo */}
-          <div className="relative bg-zinc-900 p-6 md:p-10 border-4 border-primary flex flex-col text-white shadow-[0_30px_60px_rgba(249,115,22,0.3)] z-10 rounded-2xl w-full md:scale-[1.05]">
-            <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-primary text-white px-6 py-2.5 text-xs md:text-sm font-black uppercase tracking-widest rounded-full shadow-[0_10px_20px_rgba(249,115,22,0.4)] z-20 whitespace-nowrap border-2 border-orange-400 flex items-center gap-2">
+          {/* Removido scale-[1.05] para evitar bugs de seleção do Pixel Tool */}
+          <div className="relative bg-zinc-900 p-6 md:p-10 border-4 border-primary flex flex-col text-white shadow-[0_30px_60px_rgba(249,115,22,0.3)] z-20 rounded-2xl w-full">
+            <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-primary text-white px-6 py-2.5 text-xs md:text-sm font-black uppercase tracking-widest rounded-full shadow-[0_10px_20px_rgba(249,115,22,0.4)] z-30 whitespace-nowrap border-2 border-orange-400 flex items-center gap-2">
               🔥 MAIS ESCOLHIDO
             </div>
             
@@ -102,21 +103,27 @@ export function Pricing() {
               </li>
             </ul>
 
-            <div className="mb-8 pt-6 border-t border-zinc-800">
+            <div className="mb-8 pt-6 border-t border-zinc-800 relative z-30">
               <span className="text-xs font-bold text-zinc-500 uppercase tracking-widest block mb-1">Pagamento único de:</span>
               <div className="flex items-baseline gap-1">
                 <span className="text-2xl md:text-3xl font-black text-primary">R$</span>
-                <span id="price-value-complete" className="text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-white">27,00</span>
+                {/* Removido leading-none e tracking-tighter para facilitar a seleção */}
+                <span 
+                  id="price-value-complete" 
+                  className="text-7xl md:text-8xl lg:text-9xl font-black text-white block py-2"
+                >
+                  27,00
+                </span>
               </div>
             </div>
 
-            <Button asChild className="w-full h-16 md:h-20 text-lg md:text-2xl font-black uppercase bg-primary hover:bg-orange-500 text-white shadow-[0_0_30px_rgba(249,115,22,0.5)] transition-all rounded-xl border-b-8 border-orange-700 active:border-b-0 active:translate-y-2">
+            <Button asChild className="w-full h-16 md:h-20 text-lg md:text-2xl font-black uppercase bg-primary hover:bg-orange-500 text-white shadow-[0_0_30px_rgba(249,115,22,0.5)] transition-all rounded-xl border-b-8 border-orange-700 active:border-b-0 active:translate-y-2 relative z-30">
               <a href="https://pay.lowify.com.br/checkout?product_id=0l5N5R">PEGAR ACESSO COMPLETO</a>
             </Button>
           </div>
         </div>
 
-        <div className="mt-12 md:mt-20 max-w-xl mx-auto bg-zinc-900 p-6 md:p-8 rounded-2xl flex items-center gap-6 border border-zinc-800 shadow-sm w-full">
+        <div className="mt-12 md:mt-20 max-w-xl mx-auto bg-zinc-900 p-6 md:p-8 rounded-2xl flex items-center gap-6 border border-zinc-800 shadow-sm w-full relative z-10">
           <ShieldCheck className="h-12 w-12 md:h-16 md:w-16 text-zinc-600 shrink-0" />
           <div>
             <p className="font-black text-lg md:text-2xl uppercase tracking-tighter leading-none mb-2 text-white">Garantia Total de 7 Dias</p>

@@ -20,7 +20,6 @@ import {
 } from "@/components/ui/dialog";
 import { Maximize2, MousePointer2 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { MovingText } from "@/components/ui/moving-text";
 
 export function Gallery() {
   const group1 = PlaceHolderImages.filter((img) => img.id.startsWith("gallery-1-"));
@@ -137,11 +136,21 @@ export function Gallery() {
   return (
     <section className="py-10 md:py-16 bg-zinc-50 dark:bg-zinc-950 border-y border-zinc-100 dark:border-zinc-900">
       <div className="container px-4 mx-auto max-w-5xl">
-        <div className="text-center mb-10">
-          <MovingText className="text-2xl md:text-5xl font-black uppercase mb-3 tracking-tighter italic">
-            Veja os projetos por <span className="text-[#F97316]">dentro</span>
-          </MovingText>
-          <p className="text-zinc-600 dark:text-zinc-400 font-medium text-base md:text-lg max-w-2xl mx-auto">
+        <div className="text-center mb-12">
+          {/* Efeito Moving Border solicitado */}
+          <div className="moving-border-container">
+            {/* A luz que orbita */}
+            <div className="moving-border-light"></div>
+            
+            {/* O box interno */}
+            <div className="moving-border-content">
+              <h2 className="text-2xl md:text-5xl font-black uppercase tracking-tighter italic text-white whitespace-nowrap">
+                Veja os projetos por <span className="text-[#F97316]">dentro</span>
+              </h2>
+            </div>
+          </div>
+
+          <p className="mt-8 text-zinc-600 dark:text-zinc-400 font-medium text-base md:text-lg max-w-2xl mx-auto">
             Folhas de projeto detalhadas, prontas para imprimir ou visualizar no celular na hora da fabricação.
           </p>
         </div>

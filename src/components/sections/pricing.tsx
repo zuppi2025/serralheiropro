@@ -6,36 +6,11 @@ import { Check, ShieldCheck, Sparkles, Star } from "lucide-react";
 
 export function Pricing() {
   const handleCheckout = (plan: 'essential' | 'complete') => {
-    const pixelData = plan === 'essential' ? {
-      name: 'Oferta Plano 10',
-      id: 'plano_10',
-      value: 10.00,
-      link: 'https://pay.lowify.com.br/checkout?product_id=iBmCXm'
-    } : {
-      name: 'Oferta Plano 27',
-      id: 'plano_27',
-      value: 27.00,
-      link: 'https://pay.lowify.com.br/checkout?product_id=0l5N5R'
-    };
-
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', 'InitiateCheckout', {
-        content_name: pixelData.name,
-        content_ids: [pixelData.id],
-        content_type: 'product',
-        value: pixelData.value,
-        currency: 'BRL',
-        num_items: 1,
-        contents: [{
-          id: pixelData.id,
-          quantity: 1,
-          item_price: pixelData.value
-        }]
-      });
-    }
+    const link = plan === 'essential' 
+      ? 'https://pay.lowify.com.br/checkout?product_id=iBmCXm' 
+      : 'https://pay.lowify.com.br/checkout?product_id=0l5N5R';
     
-    // Redireciona após o disparo do evento
-    window.location.href = pixelData.link;
+    window.location.href = link;
   };
 
   return (

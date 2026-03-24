@@ -138,8 +138,8 @@ export function Gallery() {
     <section className="py-10 md:py-16 bg-zinc-50 dark:bg-zinc-950 border-y border-zinc-100 dark:border-zinc-900">
       <div className="container px-4 mx-auto max-w-5xl">
         <div className="text-center mb-10">
-          <MovingText className="text-2xl md:text-5xl font-black uppercase mb-3 tracking-tighter italic text-white">
-            Veja os projetos por <span className="text-[#FF6600]">dentro</span>
+          <MovingText className="text-2xl md:text-5xl font-black uppercase mb-3 tracking-tighter italic">
+            Veja os projetos por <span className="text-[#F97316]">dentro</span>
           </MovingText>
           <p className="text-zinc-600 dark:text-zinc-400 font-medium text-base md:text-lg max-w-2xl mx-auto">
             Folhas de projeto detalhadas, prontas para imprimir ou visualizar no celular na hora da fabricação.

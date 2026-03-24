@@ -16,42 +16,41 @@ export function MovingText({
   children: React.ReactNode; 
   className?: string;
 }) {
-  const progress = useMotionValue(-100);
+  const progress = useMotionValue(0);
 
   useAnimationFrame((time) => {
-    // Ciclo de -100 a 200 para garantir que o brilho atravesse todo o texto
-    progress.set(((time / 20) % 300) - 100);
+    // Controla a velocidade conforme a lógica enviada (time / 40)
+    progress.set((time / 40) % 100);
   });
 
-  // Criamos um gradiente que funciona como uma máscara de brilho
-  const maskImage = useMotionTemplate`
+  // Gradiente conforme a lógica enviada: white -> orange -> white
+  const background = useMotionTemplate`
     linear-gradient(
       90deg,
-      transparent 0%,
+      rgba(255, 255, 255, 0) 0%,
       rgba(255, 255, 255, 0) ${progress}%,
-      rgba(255, 255, 255, 1) ${progress + 20}%,
-      rgba(255, 255, 255, 0) ${progress + 40}%,
-      transparent 100%
+      #F97316 ${progress + 5}%,
+      rgba(255, 255, 255, 0) ${progress + 15}%
     )
   `;
 
   return (
     <div className="relative inline-block w-full">
-      {/* Texto Base: Sempre visível para evitar o bug de 'sumir' */}
-      <h2 className={cn("relative z-10", className)}>
+      {/* Texto Base: Mantém as cores originais (como o laranja de 'dentro') */}
+      <h2 className={cn("relative z-10 text-white", className)}>
         {children}
       </h2>
       
-      {/* Camada de Brilho: Sobreposta com a máscara animada */}
+      {/* Camada de Brilho: Aplica o gradiente animado por cima sem esconder o texto */}
       <motion.h2
         style={{
-          WebkitMaskImage: maskImage,
-          maskImage: maskImage,
-          WebkitMaskSize: "100% 100%",
-          maskSize: "100% 100%",
+          backgroundImage: background,
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundSize: "200% 100%",
         }}
         className={cn(
-          "absolute inset-0 z-20 pointer-events-none select-none brightness-150",
+          "absolute inset-0 z-20 pointer-events-none select-none brightness-150 mix-blend-screen",
           className
         )}
         aria-hidden="true"

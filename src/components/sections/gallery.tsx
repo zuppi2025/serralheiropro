@@ -138,13 +138,13 @@ export function Gallery() {
       <div className="container px-4 mx-auto max-w-5xl">
         <div className="text-center mb-12">
           {/* Efeito Moving Border solicitado */}
-          <div className="moving-border-container">
+          <div className="moving-border-container max-w-full">
             {/* A luz que orbita */}
             <div className="moving-border-light"></div>
             
             {/* O box interno */}
             <div className="moving-border-content">
-              <h2 className="text-2xl md:text-5xl font-black uppercase tracking-tighter italic text-white whitespace-nowrap">
+              <h2 className="text-xl sm:text-2xl md:text-5xl font-black uppercase tracking-tighter italic text-white text-center leading-tight">
                 Veja os projetos por <span className="text-[#F97316]">dentro</span>
               </h2>
             </div>

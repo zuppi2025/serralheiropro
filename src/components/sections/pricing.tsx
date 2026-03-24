@@ -54,8 +54,8 @@ export function Pricing() {
               </div>
             </div>
 
-            <Button variant="outline" className="w-full h-14 md:h-16 text-base md:text-xl font-black uppercase border-2 border-zinc-700 hover:bg-zinc-800 text-white transition-all rounded-xl">
-              ACESSAR AGORA
+            <Button asChild variant="outline" className="w-full h-14 md:h-16 text-base md:text-xl font-black uppercase border-2 border-zinc-700 hover:bg-zinc-800 text-white transition-all rounded-xl">
+              <a href="https://pay.lowify.com.br/checkout?product_id=iBmCXm">ACESSAR AGORA</a>
             </Button>
           </div>
 
@@ -110,8 +110,8 @@ export function Pricing() {
               </div>
             </div>
 
-            <Button className="w-full h-16 md:h-20 text-lg md:text-2xl font-black uppercase bg-primary hover:bg-orange-500 text-white shadow-[0_0_30px_rgba(249,115,22,0.5)] transition-all rounded-xl border-b-8 border-orange-700 active:border-b-0 active:translate-y-2">
-              PEGAR ACESSO COMPLETO
+            <Button asChild className="w-full h-16 md:h-20 text-lg md:text-2xl font-black uppercase bg-primary hover:bg-orange-500 text-white shadow-[0_0_30px_rgba(249,115,22,0.5)] transition-all rounded-xl border-b-8 border-orange-700 active:border-b-0 active:translate-y-2">
+              <a href="https://pay.lowify.com.br/checkout?product_id=0l5N5R">PEGAR ACESSO COMPLETO</a>
             </Button>
           </div>
         </div>
